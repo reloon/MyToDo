@@ -2,11 +2,12 @@
   "name": "mytodo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon app",
-    "build": "npm i"
+    "build": "npm i",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
