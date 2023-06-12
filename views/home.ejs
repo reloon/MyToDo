@@ -27,7 +27,7 @@
     <div class="container">
       <div class="scedule-top flex ai-center jc-sb">
         <h1 class="heading" style="font-size: 1.3rem; font-weight: 700;">Lesson Schedule</h1>
-        <i class="uil uil-arrow-right"></i>
+        <i class="uil uil-arrow-right" style="margin-right: 0;"></i>
       </div>
       <div class="scedule-list flex">
         <div class="scedule-card">
@@ -97,7 +97,7 @@
         <a href="" class="btn">View All</a>
       </div>
       <div class="task-list">
-        <% data = data.slice(-2) %> 
+        <% data = data.slice(-3) %> 
         <% data.forEach(row => { %>
           <div class="task-card flex ai-center jc-sb">
             <a href="/delete/<%= row._id %>"><i class="uil uil-clipboard"></i></a>
