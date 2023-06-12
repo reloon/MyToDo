@@ -24,4 +24,18 @@ export const addTask = (req, res) => {
   });
 };
 
-export default (home, addTask)
+export const allTask = async (req, res) => {
+  try {
+    const task = Task.find();
+
+    res.render("allTask", {
+      title: "All Task",
+      layout: "layouts/main-layout",
+      data: task
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export default (home, addTask, allTask)

@@ -1,0 +1,21 @@
+<main>
+  <section>
+    <div class="container">
+      <h1 class="heading">All Task</h1>
+      <div class="task-list">
+        <% data.forEach(row => { %>
+          <div class="task-card flex ai-center jc-sb">
+            <a href="/delete/<%= row._id %>"><i class="uil uil-clipboard"></i></a>
+            <div class="task">
+              <h1 class="heading"><%- row.task %></h1>
+              <p class="text"><%- row.desc %></p>
+            </div>
+            <div class="deadline">
+              <h1 class="heading"><%- row.deadLine %></h1>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
