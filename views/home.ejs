@@ -1,0 +1,116 @@
+<main>
+  <section class="account-area">
+    <div class="container flex ai-center jc-sb">
+      <div class="account-info flex ai-center">
+        <img src="assets/24446.jpg" alt="">
+        <h1 class="heading">Relonpx</h1>
+      </div>
+      <div class="add-task">
+        <a href="/addTask"><i class="uil uil-plus"></i></a>
+      </div>
+    </div>
+  </section>
+  <section class="all-task-area">
+    <div class="container">
+      <div class="all-task">
+        <div class="all-task-top flex ai-center jc-sb">
+          <h1 class="heading" style="font-size: 1rem;">All Task</h1>
+          <h2 class="heading" style="font-size: 1rem;">2023</h2>
+        </div>
+        <div class="all-task-bottom flex ai-center jc-sb">
+          <h1 class="heading"><%= total %> Task</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="scedule">
+    <div class="container">
+      <div class="scedule-top flex ai-center jc-sb">
+        <h1 class="heading" style="font-size: 1.3rem; font-weight: 700;">Lesson Schedule</h1>
+        <i class="uil uil-arrow-right"></i>
+      </div>
+      <div class="scedule-list flex">
+        <div class="scedule-card">
+          <div class="scedule-day flex ai-center">
+            <i class="uil uil-calender"></i>
+            <h1 class="heading" style="font-size: 1rem;">Monday</h1>
+          </div>
+          <div class="scedule-body flex ai-center">
+            <p class="text">PPL</p>
+            <p class="text">PWPB</p>
+          </div>
+        </div>
+        <div class="scedule-card">
+          <div class="scedule-day flex ai-center">
+            <i class="uil uil-calender"></i>
+            <h1 class="heading" style="font-size: 1rem;">Tuesday</h1>
+          </div>
+          <div class="scedule-body flex ai-center">
+            <p class="text">PBO</p>
+            <p class="text">PAI</p>
+            <p class="text">PKK</p>
+            <p class="text" style="margin-right: 0rem;">MTK</p>
+          </div>
+        </div>
+        <div class="scedule-card">
+          <div class="scedule-day flex ai-center jc-sb">
+            <i class="uil uil-calender"></i>
+            <h1 class="heading" style="font-size: 1rem;">Wednesday</h1>
+          </div>
+          <div class="scedule-body flex ai-center">
+            <p class="text">PKK</p>
+            <p class="text">PBO</p>
+            <p class="text">Indonesia</p>
+            <p class="text" style="margin-right: 0rem;">MTK</p>
+          </div>
+        </div>
+        <div class="scedule-card">
+          <div class="scedule-day flex ai-center">
+            <i class="uil uil-calender"></i>
+            <h1 class="heading" style="font-size: 1rem;">Thursday</h1>
+          </div>
+          <div class="scedule-body flex ai-center">
+            <p class="text">PKK</p>
+            <p class="text">MTK</p>
+            <p class="text">PPKN</p>
+            <p class="text" style="margin-right: 0rem;">PJOK</p>
+          </div>
+        </div>
+        <div class="scedule-card">
+          <div class="scedule-day flex ai-center">
+            <i class="uil uil-calender"></i>
+            <h1 class="heading" style="font-size: 1rem;">Friday</h1>
+          </div>
+          <div class="scedule-body flex ai-center">
+            <p class="text">Inggris</p>
+            <p class="text">Basdat</p>
+            <p class="text" style="margin-right: 0rem;">PBO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="tasks">
+    <div class="container">
+      <div class="task-top flex ai-center jc-sb">
+        <h1 class="heading" style="font-size: 1.3rem; font-weight: 700;">Recently added</h1>
+        <a href="" class="btn">View All</a>
+      </div>
+      <div class="task-list">
+        <% data = data.slice(-2) %> 
+        <% data.forEach(row => { %>
+          <div class="task-card flex ai-center jc-sb">
+            <a href="/delete/<%= row._id %>"><i class="uil uil-clipboard"></i></a>
+            <div class="task">
+              <h1 class="heading"><%- row.task %></h1>
+              <p class="text"><%- row.desc %></p>
+            </div>
+            <div class="deadline">
+              <h1 class="heading"><%- row.deadLine %></h1>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>

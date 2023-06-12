@@ -1,0 +1,32 @@
+<main>
+  <section class="form">
+    <div class="container">
+      <form action="/add" method="POST">
+        <div class="title">
+          <div class="flex ai-center" style="margin-bottom: 1rem;">
+            <i class="uil uil-clipboard"></i>
+            <h1 class="heading">Add Task</h1>
+          </div>
+          <div class="flex ai-center">
+            <div class="inputGroup">
+              <label for="">Task</label>
+              <input style="width: 217px; margin-right: 10px;" type="text" name="task" placeholder="Input your task">
+            </div>
+            <div class="inputGroup">
+              <label for="">Date</label>
+              <input style="width: 50px; text-align: center;" type="text" name="deadline" placeholder="06">
+            </div>
+          </div>
+          <div class="inputGroup">
+            <label for="">Description</label>
+            <input type="text" name="desc" placeholder="Input description">
+          </div>
+          <div class="bottom flex ai-center jc-sb" style="margin-top: 25px;">
+            <a href="/">Cancel</a>
+            <button type="submit" class="button">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
