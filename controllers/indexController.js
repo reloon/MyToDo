@@ -26,12 +26,12 @@ export const addTask = (req, res) => {
 
 export const allTask = async (req, res) => {
   try {
-    const task = Task.find();
+    const tasks = Task.find();
 
     res.render("allTask", {
       title: "All Task",
       layout: "layouts/main-layout",
-      data: task
+      datas: tasks
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
