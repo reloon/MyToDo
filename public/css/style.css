@@ -88,6 +88,27 @@ a {
 
 }
 
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 0.625rem;
+  background-color: #dedede;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c2c2c2;
+  border-radius: 0.625rem;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #dedede;
+}
+
+::selection {
+  background-color: hsla(var(--hue-1), 100%, 60%, 0.9);
+  color: #fff;
+}
+
+/* MAIN STYLING */
 .scedule-body .text {
   color: var(--black-color);
   font-size: 0.6rem;
