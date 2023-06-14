@@ -101,6 +101,7 @@
       </div>
       <div class="task-list">
         <% data = data.slice(-3) %> 
+        <% data = data.reverse() %> 
         <% data.forEach(row => { %>
           <div class="task-card flex ai-center jc-sb">
             <a href="/delete/<%= row._id %>"><i class="uil uil-clipboard"></i></a>
