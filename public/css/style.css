@@ -20,11 +20,9 @@ body {
 }
 
 body {
-  overflow-x: hidden;
   background-color: var(--bg-color);
   font-family: "Poppins", sans-serif;
   transition: 0.3s background-color;
-  overflow-y: hidden;
 }
 
 a {
@@ -36,7 +34,7 @@ a {
 .container {
   position: relative;
   width: 100%;
-  max-width: 768px;
+  max-width: 368px;
   padding: 0 1rem;
   margin: 0 auto;
 }
@@ -132,7 +130,7 @@ a {
 }
 
 .scedule-list {
-  max-width: 355px;
+  width: 100%;
   overflow-y: hidden !important;
   scroll-snap-type: x mandatory;
   scroll-padding-right: 1rem;
