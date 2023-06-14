@@ -82,7 +82,7 @@ a {
 }
 
 .text {
-  color: var(--black-color);
+  color: rgb(61, 61, 61);
   font-size: 0.7rem; 
 
 }
@@ -145,6 +145,10 @@ a {
   margin-bottom: 1.2rem;
   background: var(--main-color-3);
   scroll-snap-align: start;
+}
+
+.scedule-card:last-child {
+  margin-right: 0;
 }
 
 .scedule i {
