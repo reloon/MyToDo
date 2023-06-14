@@ -248,3 +248,11 @@ border: none;
   margin-left: 5px;
   font-weight: bold;
 }
+
+.bar {
+  width: 150px;
+  height: 10px;
+  border-radius: 30px;
+  background: rgba(153, 153, 153, 0.466);
+  margin-top: 2rem;
+}
