@@ -7,6 +7,8 @@ import crud from './routes/crudRoute.js'
 import indexRouter from './routes/indexRoute.js'
 import twilio from 'twilio'
 import Task from './models/taskModel.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express();
 const port = 3001;
@@ -40,8 +42,8 @@ setInterval(async () => {
             await Task.findByIdAndUpdate(reminder._id, {
               isReminded: true,
             }).exec();
-            const accountSid = 'AC938c6d02017d8f7373115bd815a4400f';
-            const authToken = "5b3af9f3bd9dee43e6fcddd92364aadd";
+            const accountSid = procces.env.ACCOUNT_SID;
+            const authToken = process.env.AUTH_TOKEN;
             const client = twilio(accountSid, authToken);
             await client.messages.create({
               body: reminder.desc,
