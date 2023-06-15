@@ -7,14 +7,14 @@
             <i class="uil uil-clipboard"></i>
             <h1 class="heading">Add Task</h1>
           </div>
-          <div class="flex ai-center">
+          <div class="flex ai-center jc-sb">
             <div class="inputGroup">
               <label for="">Task</label>
-              <input style="width: 217px; margin-right: 10px;" type="text" name="task" placeholder="Input your task">
+              <input style="width: 277px; margin-right: 10px;" type="text" name="task" placeholder="Input your task">
             </div>
             <div class="inputGroup">
               <label for="">Date</label>
-              <input style="width: 50px; text-align: center;" type="text" name="deadline" placeholder="06">
+              <input style="width: 40px; margin-left: 4px;" type="datetime-local" min=<%- new Date() %> name="deadline">
             </div>
           </div>
           <div class="inputGroup">

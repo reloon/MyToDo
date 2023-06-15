@@ -4,7 +4,8 @@ const Task = mongoose.Schema(
   {
     task: String,
     desc: String,
-    deadLine: String
+    deadLine: String,
+    isReminded: Boolean
   }
 )
 

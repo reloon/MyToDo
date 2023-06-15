@@ -9,7 +9,8 @@ router.post('/add', (req, res) => {
   const task = new Task({
     task: body.task,
     desc: body.desc,
-    deadLine: body.deadline
+    deadLine: body.deadline,
+    isReminded: false
   })
   task.save().then(() => {
     console.log(req.body)
@@ -27,5 +28,6 @@ router.get("/delete/:id", (req, res) => {
       res.json({ message: "error" });
     });
 });
+
 
 export default router

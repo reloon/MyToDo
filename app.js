@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import expressLayouts from "express-ejs-layouts";
 import crud from './routes/crudRoute.js'
 import indexRouter from './routes/indexRoute.js'
+import twilio from 'twilio'
+import Task from './models/taskModel.js'
 
 const app = express();
 const port = 3001;
@@ -26,6 +28,34 @@ const main = async (req, res) => {
 mongoose.set("strictQuery", true);
 
 main().catch((error) => console.log(error));
+
+setInterval(async () => {
+  try {
+    const reminderList = await Task.find({}).exec();
+    if (reminderList) {
+      for (const reminder of reminderList) {
+        if (!reminder.isReminded) {
+          const now = new Date()
+          if (new Date(reminder.deadLine) - now < 0) {
+            await Task.findByIdAndUpdate(reminder._id, {
+              isReminded: true,
+            }).exec();
+            const accountSid = 'AC938c6d02017d8f7373115bd815a4400f';
+            const authToken = "5b3af9f3bd9dee43e6fcddd92364aadd";
+            const client = twilio(accountSid, authToken);
+            await client.messages.create({
+              body: reminder.desc,
+              from: "whatsapp:+14155238886",
+              to: "whatsapp:+62895411963066"
+            });
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log("Error:", error);
+  }
+}, 1000);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
