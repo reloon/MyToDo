@@ -26,6 +26,11 @@ app.use(indexRouter)
 const main = async (req, res) => {
   await mongoose.connect(process.env.STRING_CONNECTION).finally(console.log("connected"));
 };
+
+mongoose.set("strictQuery", true);
+
+main().catch((error) => console.log(error));
+
 setInterval(async () => {
   try {
     const reminderList = await Task.find({}).exec();
@@ -53,11 +58,6 @@ setInterval(async () => {
     console.log("Error:", error);
   }
 }, 1000);
-
-mongoose.set("strictQuery", true);
-
-main().catch((error) => console.log(error));
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
