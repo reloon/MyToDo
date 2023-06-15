@@ -27,17 +27,13 @@ const main = async (req, res) => {
   await mongoose.connect(process.env.STRING_CONNECTION).finally(console.log("connected"));
 };
 
-mongoose.set("strictQuery", true);
-
-main().catch((error) => console.log(error));
-
 setInterval(async () => {
   try {
     const reminderList = await Task.find({}).exec();
     if (reminderList) {
       for (const reminder of reminderList) {
         if (!reminder.isReminded) {
-          const now = new Date()
+          const now = new Date();
           if (new Date(reminder.deadLine) - now < 0) {
             await Task.findByIdAndUpdate(reminder._id, {
               isReminded: true,
@@ -48,7 +44,7 @@ setInterval(async () => {
             await client.messages.create({
               body: reminder.desc,
               from: "whatsapp:+14155238886",
-              to: "whatsapp:+62895411963066"
+              to: "whatsapp:+62895411963066",
             });
           }
         }
@@ -58,6 +54,10 @@ setInterval(async () => {
     console.log("Error:", error);
   }
 }, 1000);
+
+mongoose.set("strictQuery", true);
+
+main().catch((error) => console.log(error));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
