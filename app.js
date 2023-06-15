@@ -42,7 +42,7 @@ setInterval(async () => {
             await Task.findByIdAndUpdate(reminder._id, {
               isReminded: true,
             }).exec();
-            const accountSid = procces.env.ACCOUNT_SID;
+            const accountSid = process.env.ACCOUNT_SID;
             const authToken = process.env.AUTH_TOKEN;
             const client = twilio(accountSid, authToken);
             await client.messages.create({
