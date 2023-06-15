@@ -33,7 +33,7 @@ main().catch((error) => console.log(error));
 
 setInterval(async () => {
   try {
-    const reminderList = await Task.find({}).exec();
+    const reminderList = await Task.find({});
     if (reminderList) {
       for (const reminder of reminderList) {
         if (!reminder.isReminded) {
@@ -41,7 +41,7 @@ setInterval(async () => {
           if (new Date(reminder.deadLine) - now < 0) {
             await Task.findByIdAndUpdate(reminder._id, {
               isReminded: true,
-            }).exec();
+            });
             const accountSid = process.env.ACCOUNT_SID;
             const authToken = process.env.AUTH_TOKEN;
             const client = twilio(accountSid, authToken);
