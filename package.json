@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon app",
     "build": "npm i",
-    "start": "nodemon app"
+    "start": "node app"
   },
   "keywords": [],
   "author": "",
