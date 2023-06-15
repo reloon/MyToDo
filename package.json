@@ -8,7 +8,6 @@
     "dev": "nodemon app",
     "build": "npm i",
     "start": "nodemon app",
-    "start:prod": "nodemon app"
   },
   "keywords": [],
   "author": "",
