@@ -31,7 +31,7 @@ mongoose.set("strictQuery", true);
 
 main().catch((error) => console.log(error));
 
-setInterval(async () => {
+setTimeout(async () => {
   try {
     const reminderList = await Task.find({});
     if (reminderList) {
