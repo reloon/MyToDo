@@ -32,7 +32,7 @@ mongoose.set("strictQuery", true);
 
 main().catch((error) => console.log(error));
 
-async function sendReminders() {
+cron.schedule('* * * * *', async () => {
   try {
     const reminderList = await Task.find({});
     if (reminderList) {
@@ -59,13 +59,7 @@ async function sendReminders() {
   } catch (error) {
     console.log("Error:", error);
   }
-}
-
-// Menjadwalkan tugas untuk dijalankan setiap detik
-cron.schedule("* * * * * *", async () => {
-  await sendReminders();
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
