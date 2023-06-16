@@ -14,7 +14,7 @@ router.post('/add', (req, res) => {
   })
   task.save().then(() => {
     console.log(req.body)
-    res.redirect('/')
+    res.redirect('/add')
   })
 })
 
