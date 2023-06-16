@@ -59,11 +59,12 @@ async function sendReminders() {
   } catch (error) {
     console.log("Error:", error);
   }
-
-  setTimeout(sendReminders, 1000); // Call the function again after 1 second
 }
 
-sendReminders(); // Start the initial invocation
+// Menjadwalkan tugas untuk dijalankan setiap detik
+cron.schedule("* * * * * *", async () => {
+  await sendReminders();
+});
 
 
 app.listen(PORT, () => {
