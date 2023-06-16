@@ -31,7 +31,7 @@ mongoose.set("strictQuery", true);
 
 main().catch((error) => console.log(error));
 
-setInterval(async () => {
+main(setInterval(async () => {
   try {
     const reminderList = await Task.find({});
     if (reminderList) {
@@ -57,7 +57,7 @@ setInterval(async () => {
   } catch (error) {
     console.log("Error:", error);
   }
-}, 1000);
+}, 1000));
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
