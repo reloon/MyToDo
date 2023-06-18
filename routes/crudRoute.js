@@ -1,8 +1,6 @@
 import express from "express";
 import Task from '../models/taskModel.js'
 import twilio from 'twilio'
-import dotenv from "dotenv";
-dotenv.config();
 
 const router = express.Router()
 const accountSid = 'AC938c6d02017d8f7373115bd815a4400f';
