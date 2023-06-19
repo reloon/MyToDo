@@ -23,6 +23,7 @@ body {
   background-color: var(--bg-color);
   font-family: "Poppins", sans-serif;
   transition: 0.3s background-color;
+  overflow: hidden;
 }
 
 a {
