@@ -62,7 +62,6 @@ router.post('/send', async (req, res) => {
   });
   const openai = new OpenAIApi(configuration);
   const ask = req.body.ask
-  console.log(ask);
 
   try {
     const completion = await openai.createCompletion({
@@ -82,7 +81,6 @@ router.post('/send', async (req, res) => {
       data: completion.data.choices[0].text,
       mess: ask
     });    
-    console.log(completion.data.choices[0].text);
   } catch (error) {
     if (error.response) {
       console.error(error.response.status, error.response.data);
