@@ -1,13 +1,14 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
-import bodyParser from 'body-parser';
 import expressLayouts from "express-ejs-layouts";
 import crud from './routes/crudRoute.js'
 import indexRouter from './routes/indexRoute.js'
+import bodyParser from 'body-parser';
+
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.set("view engine", "ejs");
 

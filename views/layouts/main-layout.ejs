@@ -15,5 +15,23 @@
   <div class="container">
     <%- body %>
   </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+
+    ScrollReveal().reveal('.messages p', {
+      origin: 'bottom',
+      distance: '20px',
+      delay: '200',
+      duration: '800',
+    })
+    ScrollReveal().reveal('.messages .test', {
+      origin: 'bottom',
+      distance: '20px',
+      delay: '1000',
+      duration: '800'
+    })
+  </script>
+
 </body>
 </html>

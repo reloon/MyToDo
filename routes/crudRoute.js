@@ -1,6 +1,7 @@
 import express from "express";
 import Task from '../models/taskModel.js'
 import twilio from 'twilio'
+import { Configuration, OpenAIApi } from "openai";
 
 const router = express.Router()
 const accountSid = 'AC938c6d02017d8f7373115bd815a4400f';
@@ -52,6 +53,42 @@ router.get("/delete/:id", (req, res) => {
       res.json({ message: "error" });
     });
 });
+
+router.post('/send', async (req, res) => {
+  const configuration = new Configuration({
+    apiKey: "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",
+  });
+  const openai = new OpenAIApi(configuration);
+  const ask = req.body.ask
+  console.log(ask);
+
+  try {
+    const completion = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: ask,
+      temperature: 0.1,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
+      max_tokens: 256,
+      stop: ["Human:", "AI:", "Human:", "AI:"],
+    });
+
+    res.render("chatBot", {
+      title: "Chat Bot",
+      layout: "layouts/main-layout",
+      data: completion.data.choices[0].text,
+      mess: ask
+    });    
+    console.log(completion.data.choices[0].text);
+  } catch (error) {
+    if (error.response) {
+      console.error(error.response.status, error.response.data);
+    } else {
+      console.error(`Error with OpenAI API request: ${error.message}`);
+    }
+  }
+})
 
 
 export default router

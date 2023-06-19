@@ -20,6 +20,7 @@
     "express-ejs-layouts": "^2.5.1",
     "mongoose": "^7.2.3",
     "nodemon": "^2.0.22",
+    "openai": "^3.3.0",
     "twilio": "^4.12.0"
   }
 }
