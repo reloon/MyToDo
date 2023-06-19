@@ -4,8 +4,8 @@ import twilio from 'twilio'
 import { Configuration, OpenAIApi } from "openai";
 
 const router = express.Router()
-const accountSid = 'AC938c6d02017d8f7373115bd815a4400f';
-const authToken = '69e1414836882adf8edb1811e6195828';
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
 const client = twilio(accountSid, authToken)
 
 router.post("/add", (req, res) => {
