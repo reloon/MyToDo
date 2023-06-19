@@ -26,8 +26,6 @@ const main = async (req, res) => {
   await mongoose.connect(process.env.MONGO_URI).finally(console.log("connected"));
 };
 
-mongoose.set("strictQuery", true);
-
 main().then(() => {
   app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
