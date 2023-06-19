@@ -5,6 +5,8 @@ import expressLayouts from "express-ejs-layouts";
 import crud from './routes/crudRoute.js'
 import indexRouter from './routes/indexRoute.js'
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 const app = express();

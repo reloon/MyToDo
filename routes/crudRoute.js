@@ -56,7 +56,7 @@ router.get("/delete/:id", (req, res) => {
 
 router.post('/send', async (req, res) => {
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.API_KEY,
   });
   const openai = new OpenAIApi(configuration);
   const ask = req.body.ask
