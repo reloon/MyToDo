@@ -24,7 +24,7 @@ app.use(indexRouter)
 
 const main = async (req, res) => {
   await mongoose
-    .connect("mongodb://relonpx:pohodeui123@ac-jjxtwfo-shard-00-00.0psqxhd.mongodb.net:27017,ac-jjxtwfo-shard-00-01.0psqxhd.mongodb.net:27017,ac-jjxtwfo-shard-00-02.0psqxhd.mongodb.net:27017/todotest?ssl=true&replicaSet=atlas-2rhk8n-shard-0&authSource=admin&retryWrites=true&w=majority").finally(console.log("connected"));
+    .connect(process.env.STRING_CONNECTION).finally(console.log("connected"));
 };
 
 mongoose.set("strictQuery", true);
