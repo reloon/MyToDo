@@ -2,6 +2,8 @@ import express from "express";
 import Task from '../models/taskModel.js'
 import twilio from 'twilio'
 import { Configuration, OpenAIApi } from "openai";
+import dotenv from "dotenv";
+dotenv.config();
 
 const router = express.Router()
 const accountSid = process.env.ACCOUNT_SID;
