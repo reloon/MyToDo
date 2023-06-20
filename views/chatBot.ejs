@@ -15,9 +15,16 @@
     </div>
   </section>
   <section class="messages-area">
-    <div class="container" style="height: calc(100% - 185px); overflow-x: scroll;" id="messages-area">
+    <div class="container" style="height: calc(100% - 185px); overflow-x: scroll;">
       <% if (data) { %>
-        
+        <div class="messages" style="justify-content: right; margin: 1rem 0 0 3rem;">
+          <p><%= mess %></p>
+        </div>
+        <div class="messages" style="justify-content: left; margin-right: 3rem;">
+          <p class="test" style="background: var(--bg-color-transparent); border: 1px solid var(--black-color);">
+            <%= data %>
+          </p>
+        </div>
       <% } else { %>
         <div class="messages" style="justify-content: left; margin: 1rem 0 0 0">
           <p>Hello! How can I assist you today?</p>
@@ -28,9 +35,9 @@
   </section>
   <section class="prompt-area" style="position: sticky; bottom: 1.3rem;">
     <div class="container">
-      <form id="chat-form" style="background: var(--bg-color);">
+      <form action="/send" method="post" style="background: var(--bg-color);">
         <div class="inputGroup flex ai-center jc-sb">
-          <input type="text" id="message" placeholder="Type your message" style="margin-top: 0;">
+          <input type="text" id="message-input" placeholder="Type your message" name="ask" style="margin-top: 0;">
           <button type="submit" class="btn">Send</button>
         </div>
       </form>
