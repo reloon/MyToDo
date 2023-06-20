@@ -62,13 +62,16 @@
 
         var channel = pusher.subscribe('chatBot');
         channel.bind('message', data => {
-          const messageDivs = document.createElement('div');
-          const ps = document.createElement('p')
-          messageDivs.setAttribute("class", "messages")
-          messageDivs.setAttribute("style", "justify-content: left; margin: 0 3rem 0 0")
-          ps.innerHTML = data.text;
-          chatWindow.appendChild(messageDivs);
-          messageDivs.appendChild(ps)
+          const senderClientId = pusher.connection.socket_id;
+          if (data.clientId !== senderClientId) {
+            const messageDivs = document.createElement('div');
+            const ps = document.createElement('p')
+            messageDivs.setAttribute("class", "messages")
+            messageDivs.setAttribute("style", "justify-content: left; margin: 0 3rem 0 0")
+            ps.innerHTML = data.text;
+            chatWindow.appendChild(messageDivs);
+            messageDivs.appendChild(ps)
+          }
         }, channel.unbind());
         con.scrollTop = con.scrollHeight - con.clientHeight
       });
