@@ -17,8 +17,9 @@
   </div>
 
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://js.pusher.com/8.0.1/pusher.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
-
     ScrollReveal().reveal('.messages p', {
       origin: 'bottom',
       distance: '20px',
@@ -32,6 +33,45 @@
       duration: '800'
     })
   </script>
+   <script>
+      const pusher = new Pusher('f64eba4bedbfc2d41f25', {
+        cluster: 'ap1',
+        useTLS: true,
+      });
+      const chatForm = document.getElementById('chat-form');
+      const chatWindow = document.getElementById('messages-area');
+      const con = document.querySelector('.messages-area .container')
 
+      chatForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        const message = document.getElementById('message').value;
+
+        const completion = await axios.post('/message', { message });
+        const assistantMessage = completion.data.text;
+
+        const messageDiv = document.createElement('div');
+        const p = document.createElement('p')
+        messageDiv.setAttribute("class", "messages")
+        messageDiv.setAttribute("style", "justify-content: right; margin: 0 0 0 3rem;")
+        p.setAttribute("class", "test")
+        p.setAttribute("style", "background: var(--bg-color-transparent); border: 1px solid var(--black-color);")
+        p.innerHTML = message;
+        chatWindow.appendChild(messageDiv);
+        messageDiv.appendChild(p)
+
+
+        var channel = pusher.subscribe('chatBot');
+        channel.bind('message', data => {
+          const messageDivs = document.createElement('div');
+          const ps = document.createElement('p')
+          messageDivs.setAttribute("class", "messages")
+          messageDivs.setAttribute("style", "justify-content: left; margin: 0 3rem 0 0")
+          ps.innerHTML = data.text;
+          chatWindow.appendChild(messageDivs);
+          messageDivs.appendChild(ps)
+        }, channel.unbind());
+        con.scrollTop = con.scrollHeight - con.clientHeight
+      });
+    </script>
 </body>
 </html>
