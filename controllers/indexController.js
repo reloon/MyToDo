@@ -1,20 +1,20 @@
-import Task from "../models/taskModel.js"
+import Task from "../models/taskModel.js";
 
 export const home = async (req, res) => {
   try {
-    const task = await Task.find()
-    const count = await Task.countDocuments()
+    const task = await Task.find();
+    const count = await Task.countDocuments();
 
-    res.render('home', {
-      title: 'MyToDo',
-      layout: 'layouts/main-layout',
+    res.render("home", {
+      title: "MyToDo",
+      layout: "layouts/main-layout",
       data: task,
-      total: count
-    })
+      total: count,
+    });
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
-}
+};
 
 export const addTask = (req, res) => {
   res.render("addTask", {
@@ -41,8 +41,8 @@ export const chat = (req, res) => {
   res.render("chatBot", {
     title: "Aurum | AI",
     layout: "layouts/main-layout",
-    data:''
+    data: "",
   });
 };
 
-export default (home, addTask, allTask, chat)
+export default (home, addTask, allTask, chat);
