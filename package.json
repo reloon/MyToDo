@@ -6,9 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "env-cmd node --watch app.js",
-    "build": "npm run build:views",
-    "start": "node app.js",
-    "build:views": "mkdir -p public && cp -R views public && echo 'Views copied to public folder'"
+    "build": "npm i",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
