@@ -41,7 +41,9 @@ export const chat = (req, res) => {
   res.render("chatBot", {
     title: "Aurum | AI",
     layout: "layouts/main-layout",
-    data:''
+    data: "",
+    mess: "",
+    conversationHistory: []
   });
 };
 

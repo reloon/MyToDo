@@ -16,20 +16,22 @@
   </section>
   <section class="messages-area">
     <div class="container" style="height: calc(100% - 185px); overflow-x: scroll;">
-      <% if (data) { %>
+      <% if (conversationHistory.length > 0) { %>
+      <% conversationHistory.forEach(function(entry) { %>
         <div class="messages" style="justify-content: right; margin: 1rem 0 0 3rem;">
-          <p><%= mess %></p>
+          <p><%= entry.question %></p>
         </div>
         <div class="messages" style="justify-content: left; margin-right: 3rem;">
           <p class="test" style="background: var(--bg-color-transparent); border: 1px solid var(--black-color);">
-            <%= data %>
+            <%= entry.answer %>
           </p>
         </div>
-      <% } else { %>
-        <div class="messages" style="justify-content: left; margin: 1rem 0 0 0">
-          <p>Hello! How can I assist you today?</p>
-        </div>
-      <% } %>
+      <% }); %>
+    <% } else { %>
+      <div class="messages" style="justify-content: left; margin: 1rem 0 0 0">
+        <p>Hello! How can I assist you today?</p>
+      </div>
+    <% } %>
     </div>
 
   </section>

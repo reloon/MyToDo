@@ -56,6 +56,7 @@ router.get("/delete/:id", (req, res) => {
     });
 });
 
+let conversationHistory = [];
 router.post('/send', async (req, res) => {
   const configuration = new Configuration({
     apiKey: process.env.API_KEY,
@@ -75,11 +76,17 @@ router.post('/send', async (req, res) => {
       stop: ["Human:", "AI:", "Human:", "AI:"],
     });
 
+    conversationHistory.push({
+      question: ask,
+      answer: completion.data.choices[0].text,
+    });
+
     res.render("chatBot", {
       title: "Chat Bot",
       layout: "layouts/main-layout",
       data: completion.data.choices[0].text,
-      mess: ask
+      mess: ask,
+      conversationHistory: conversationHistory, // Kirim riwayat percakapan ke tampilan
     });    
   } catch (error) {
     if (error.response) {

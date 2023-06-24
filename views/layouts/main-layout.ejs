@@ -16,22 +16,34 @@
     <%- body %>
   </div>
 
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script>
+<script>
+  function scrollToBottom() {
+    const messagesContainer = document.querySelector('.messages-area .container');
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
 
-    ScrollReveal().reveal('.messages p', {
-      origin: 'bottom',
-      distance: '20px',
-      delay: '200',
-      duration: '800',
-    })
-    ScrollReveal().reveal('.messages .test', {
-      origin: 'bottom',
-      distance: '20px',
-      delay: '1000',
-      duration: '800'
-    })
-  </script>
+  function typeEffect(element, message, speed) {
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < message.length) {
+        element.innerHTML += message.charAt(i);
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, speed);
+  }
+
+  const responseElements = document.querySelectorAll('.messages-area .container .messages:last-child .test');
+  responseElements.forEach((element) => {
+    const responseData = element.innerHTML;
+    element.innerHTML = '';
+    typeEffect(element, responseData, 60);
+  });
+
+  scrollToBottom();
+</script>
+
 
 </body>
 </html>
