@@ -1,5 +1,5 @@
 <main>
-  <section class="account-area" style="background: var(--bg-color); position: sticky; top: 1.3rem;">
+  <section class="account-area" style="background: var(--bg-color); margin-top: 1.3rem;">
     <div class="container">
       <div class="bot flex ai-center jc-sb">
         <div class="account-info flex ai-center">
@@ -15,7 +15,7 @@
     </div>
   </section>
   <section class="messages-area">
-    <div class="container" style="height: calc(100% - 185px); overflow-x: scroll;">
+    <div class="container" style="height: calc(100% - 175px); overflow-x: scroll;">
       <% if (conversationHistory.length > 0) { %>
       <% conversationHistory.forEach((entry) => { %>
         <div class="messages" style="justify-content: right; margin: 1rem 0 0 3rem;">
@@ -35,7 +35,7 @@
     </div>
 
   </section>
-  <section class="prompt-area" style="position: sticky; bottom: 1.3rem;">
+  <section class="prompt-area">
     <div class="container">
       <form action="/send" method="post" style="background: var(--bg-color);">
         <div class="inputGroup flex ai-center jc-sb">

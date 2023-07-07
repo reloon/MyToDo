@@ -153,13 +153,13 @@ a {
   font-size: 1rem;
   margin-right: 0.7rem;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.267);
 }
 
 .task-card {
   background: var(--main-color-2);
-  padding: 1rem;
+  padding: 0.8rem;
   border-radius: 15px;
   margin-top: 1rem;
 }
@@ -173,7 +173,7 @@ a {
 }
 
 .task .heading{
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-bottom: 0.3rem;
 }
 
@@ -207,7 +207,7 @@ border: none;
 .inputGroup label{
   display: block;
   margin-top: 15px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -218,7 +218,7 @@ border: none;
   color: #000000;
   display: block;
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 500;
   border-radius: 10px;
   border: 1px solid var(--black-color);
@@ -244,7 +244,7 @@ border: none;
 }
 
 .bar {
-  width: 150px;
+  width: 130px;
   height: 10px;
   border-radius: 30px;
   background: rgba(194, 194, 194, 0.466);
@@ -260,7 +260,7 @@ border: none;
 
 .messages {
   display: flex;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .messages p {
