@@ -1,13 +1,12 @@
+import cors from 'cors'
+import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
-import cors from 'cors'
-import expressLayouts from "express-ejs-layouts";
+import bodyParser from 'body-parser';
 import crud from './routes/crudRoute.js'
 import indexRouter from './routes/indexRoute.js'
-import bodyParser from 'body-parser';
-import dotenv from 'dotenv'
+import expressLayouts from "express-ejs-layouts";
 dotenv.config()
-
 
 const app = express();
 const PORT = 3000;
@@ -28,6 +27,6 @@ const main = async (req, res) => {
 
 main().then(() => {
   app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
+    console.log(`App listening on port ${PORT}`);
   });
 })

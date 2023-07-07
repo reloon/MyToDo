@@ -1,14 +1,14 @@
 import express from "express";
-import Task from '../models/taskModel.js'
-import twilio from 'twilio'
+import Task from "../models/taskModel.js";
+import twilio from "twilio";
 import { Configuration, OpenAIApi } from "openai";
 import dotenv from "dotenv";
 dotenv.config();
 
-const router = express.Router()
+const router = express.Router();
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
-const client = twilio(accountSid, authToken)
+const client = twilio(accountSid, authToken);
 
 router.post("/add", (req, res) => {
   const { task, desc, deadline } = req.body;
@@ -24,12 +24,10 @@ router.post("/add", (req, res) => {
   tasks
     .save()
     .then(() => {
-      console.log("Task added:", taskData);
       res.redirect("/");
     })
     .catch((error) => {
       console.log("Error saving task:", error);
-      res.status(500).send("Error saving task.");
     });
 
   const twilioMessage = `Hello Reloon, there is a new ${task} assignment => *${desc}*.
@@ -44,7 +42,6 @@ Must be collected before ${deadline}`;
     .catch((error) => console.log("Error sending Twilio message:", error));
 });
 
-
 router.get("/delete/:id", (req, res) => {
   const id = req.params.id;
   Task.deleteOne({ _id: id })
@@ -57,12 +54,12 @@ router.get("/delete/:id", (req, res) => {
 });
 
 let conversationHistory = [];
-router.post('/send', async (req, res) => {
+router.post("/send", async (req, res) => {
   const configuration = new Configuration({
     apiKey: process.env.API_KEY,
   });
   const openai = new OpenAIApi(configuration);
-  const ask = req.body.ask
+  const ask = req.body.ask;
 
   try {
     const completion = await openai.createCompletion({
@@ -86,8 +83,8 @@ router.post('/send', async (req, res) => {
       layout: "layouts/main-layout",
       data: completion.data.choices[0].text,
       mess: ask,
-      conversationHistory: conversationHistory, // Kirim riwayat percakapan ke tampilan
-    });    
+      conversationHistory: conversationHistory,
+    });
   } catch (error) {
     if (error.response) {
       console.error(error.response.status, error.response.data);
@@ -95,7 +92,6 @@ router.post('/send', async (req, res) => {
       console.error(`Error with OpenAI API request: ${error.message}`);
     }
   }
-})
+});
 
-
-export default router
+export default router;

@@ -3,9 +3,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ICONs -->
+  <!-- ICONS -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
   <!-- CSS -->
   <link rel="stylesheet" href="/css/style.css">
 
@@ -16,34 +15,32 @@
     <%- body %>
   </div>
 
-<script>
-  function scrollToBottom() {
-    const messagesContainer = document.querySelector('.messages-area .container');
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }
+  <script>
+    function scrollToBottom() {
+      const messagesContainer = document.querySelector('.messages-area .container');
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
 
-  function typeEffect(element, message, speed) {
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < message.length) {
-        element.innerHTML += message.charAt(i);
-        i++;
-      } else {
-        clearInterval(interval);
-      }
-    }, speed);
-  }
+    function typeEffect(element, message, speed) {
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < message.length) {
+          element.innerHTML += message.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, speed);
+    }
 
-  const responseElements = document.querySelectorAll('.messages-area .container .messages:last-child .test');
-  responseElements.forEach((element) => {
-    const responseData = element.innerHTML;
-    element.innerHTML = '';
-    typeEffect(element, responseData, 60);
-  });
+    const responseElements = document.querySelectorAll('.messages-area .container .messages:last-child .test');
+    responseElements.forEach((element) => {
+      const responseData = element.innerHTML;
+      element.innerHTML = '';
+      typeEffect(element, responseData, 60);
+    });
 
-  scrollToBottom();
-</script>
-
-
+    scrollToBottom();
+  </script>
 </body>
 </html>

@@ -17,7 +17,7 @@
   <section class="messages-area">
     <div class="container" style="height: calc(100% - 185px); overflow-x: scroll;">
       <% if (conversationHistory.length > 0) { %>
-      <% conversationHistory.forEach(function(entry) { %>
+      <% conversationHistory.forEach((entry) => { %>
         <div class="messages" style="justify-content: right; margin: 1rem 0 0 3rem;">
           <p><%= entry.question %></p>
         </div>
